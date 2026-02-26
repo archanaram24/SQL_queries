@@ -1,0 +1,5 @@
+create database database_name.
+use database_name.
+show databases.
+create table table_name(slno int,name varchar,loaction varchar, phoneno varchar);
+select * from table_name;
