@@ -3,3 +3,19 @@ use database_name.
 show databases.
 create table table_name(slno int,name varchar,loaction varchar, phoneno varchar);
 select * from table_name;
+create database bank;
+use bank;
+show databases;
+create table bkcustomer( customername varchar(100),phoneno varchar(15),emailid  varchar(120));
+select * from bkcustomer;
+insert into bkcustomer values ( "archana","6371303155","archanaram445@gmail.com");
+insert into bkcustomer values ( "sarmistha","6371343155","sarmisthamallik49@gmail.com");
+insert into bkcustomer values ( "saswat","6345678923","saswatkumar234@gmail.com");
+select * from bkcustomer where customename ="archana";
+select * from bkcustomer where phoneno ="6371303155";
+delete from bkcustomer where emailid ="saswatkumar234@gmail.com";
+delete from bkcustomer;
+update bkcustomer set phoneno = "8328841403" where customename = "saswat";
+delete from bkcustomer;
+update bkcustomer set phoneno = "8328841403",emailid ="saswatkumar567@gmail.com" where customename = "saswat";
+select phoneno,customename from bkcustomer;
