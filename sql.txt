@@ -19,3 +19,47 @@ update bkcustomer set phoneno = "8328841403" where customename = "saswat";
 delete from bkcustomer;
 update bkcustomer set phoneno = "8328841403",emailid ="saswatkumar567@gmail.com" where customename = "saswat";
 select phoneno,customename from bkcustomer;
+
+create database pg;
+use pg;
+create table guest 
+(id int primary key, 
+name varchar(100) not null,
+ phone varchar(30) unique not null,
+ adress varchar(100) not null,
+ joined_in date not null ,
+ left_in date);
+ 
+create table room(id int primary key,
+ room_no varchar(100) unique not null,
+ floorno int not null,
+ no_of_bed int not null,
+ price int );
+ 
+create table allocation(id int primary key,
+ guest_id int not null,
+ room_id int not null,
+ occupied date not null,
+ foreign key (guest_id) references guest(id),
+ foreign key (room_id) references room(id));
+ 
+ 
+create table payment
+(guest_id int not null,
+ammount int not null,
+payment_date date not null,
+foreign key (guest_id) references guest(id));
+
+show tables;
+insert into guest values(01,"archana","6371303155","odisha","2025-01-01","2025-08-30");
+insert into room values(02,"410",06,02,9000);
+insert into allocation values( 03,01,410,"2025-01-01");
+insert into payment values(01,9000,"2025-01-01");
+select * from guest;
+delete from payment;
+select * from room;
+select * from allocation;
+select * from payment;
+drop table payment;
+select * from allocation a join guest g on a.guest_id=g.id
+						   join room r on a.room_id=r.id;
